@@ -1,5 +1,4 @@
 // Write your JS here
-let person;
 let maxHealth = 10;
 
 const hero = {
@@ -33,22 +32,23 @@ const weapons = {
 };
 
 const daggerClicked = document.getElementById("dagger").addEventListener("click", function(){
-  pickUpItem(hero, weapons.dagger);
+  pickUpItem(hero, weapons.dagger)
+  ;
 });
 
 function pickUpItem(person, weapon){
-  return person.inventory.push(weapon);
+  let numOfWeapon = person.inventory.push(weapon);
+  document.getElementById("weaponType").innerHTML = `Number of weapons: ${numOfWeapon}`
+  ;
 };
 
-//EQUIP WEAPON
 //Reassigns the 'weapon' property of person to the first element of the person.inventory array
-
-//If the inventroy array of person is empty, the function should do nothing
-
+//If the inventory array of person is empty, the function should do nothing
 //When the bag is clicked, it will equip the hero with the first item in the inventory array
 
 const bagClicked = document.getElementById("bag").addEventListener("click", function(){
-  equipWeapon(hero);
+  equipWeapon(hero)
+  ;
 });
 
 function equipWeapon(person){
@@ -59,3 +59,18 @@ function equipWeapon(person){
   }
 };
 
+//Allow people to change the name of their hero using window.prompt
+function enterName(){
+  hero.name = prompt("Please enter your hero name!");
+  if (hero.name != null) {
+    document.getElementById("name").innerHTML = `Hero Name: ${hero.name}`
+  } else {
+    return true;
+  };
+  displayStats()
+};
+
+//Write displayStats function that writes your hero's name, health, weapontype, weapon damage to the page. Call it at the end of your script
+function displayStats(){
+  document.getElementById("healthLevel").innerHTML = `Health Level: ${hero.health}`
+};
