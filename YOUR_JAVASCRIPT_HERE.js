@@ -37,9 +37,7 @@ const daggerClicked = document.getElementById("dagger").addEventListener("click"
 });
 
 function pickUpItem(person, weapon){
-  let numOfWeapon = person.inventory.push(weapon);
-  document.getElementById("weaponType").innerHTML = `Number of weapons: ${numOfWeapon}`
-  ;
+  return person.inventory.push(weapon);
 };
 
 //Reassigns the 'weapon' property of person to the first element of the person.inventory array
@@ -73,4 +71,9 @@ function enterName(){
 //Write displayStats function that writes your hero's name, health, weapontype, weapon damage to the page. Call it at the end of your script
 function displayStats(){
   document.getElementById("healthLevel").innerHTML = `Health Level: ${hero.health}`
+};
+
+function countWeapon(){
+  let numOfWeapon = hero.inventory.push(weapons.dagger);
+  document.getElementById("weaponType").innerHTML = `Number of weapons: ${numOfWeapon}`
 };
